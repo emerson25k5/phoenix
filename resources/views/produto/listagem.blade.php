@@ -61,9 +61,9 @@
              
             
                     @if(old('nome'))
-                        <div class="alert alert-success">
+                <br><br><div class="alert alert-success">
                             <strong>Sucesso!</strong> 
-                            O produto {{ old('nome') }} foi adicionado/atualizado.
+                            O produto <b>{{ old('nome') }}</b> foi adicionado/atualizado.
                         </div>
                     @endif
 
