@@ -2,9 +2,14 @@
 
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PersonagemController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
-Route::get('/', [ProdutoController::class, 'lista'])->name('produtos');
+Route::get('/', function () {
+    return Redirect('login');
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/produtos', [ProdutoController::class, 'lista'])->name('produtos');
 
@@ -21,3 +26,5 @@ Route::get('/produtos/remove/{id}', [ProdutoController::class, 'remove'])->name(
 Route::get('/produtos/altera/{id}', [ProdutoController::class, 'altera'])->name('altera');
 
 Route::post('/produtos/efetuaAlteracao/{id}', [ProdutoController::class, 'efetuaAlteracao'])->name('efetuaAlteracao');
+
+Auth::routes();

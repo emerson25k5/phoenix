@@ -1,6 +1,6 @@
-@extends('app')
+@extends('layout/principal')
  
- @section('content')
+ @section('conteudo')
  <div class="container">
    <div class="row">
      <div class="col-md-10 col-md-offset-1">
@@ -8,8 +8,8 @@
          <div class="panel-heading">Home</div>
  
          <div class="panel-body">
-           You are logged in!
-         </div>
+           Seja bem-vindo <b>{{ Auth::user()->name }}</b>
+        </div>  
        </div>
      </div>
    </div>

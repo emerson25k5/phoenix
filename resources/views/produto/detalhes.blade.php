@@ -13,5 +13,16 @@
                 <li>
                     <b>Quantidade em estoque: </b>{{$p->quantidade}}
                 </li>
+                <li>
+                    <b>Responsável pelo cadastro: </b>{{$p->responsavelCadastro}}
+                </li>
+
+                @if(isset($p->updated_date))
+                    <li>
+                        <b>Atualizado em: </b>{{$p->updated_date}}
+                    </li>
+                @else
+                    <?= (empty($p->created_date)) ? "" : '<li><b>Criado em: </b>'. $p->created_date;?></li>
+                @endif           
             </ul>
             @endsection

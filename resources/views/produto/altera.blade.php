@@ -4,6 +4,11 @@
 
 <form action="/produtos/efetuaAlteracao/{{$p->id}}" method="post">
 
+<?php
+    $timestamp = new DateTime();
+    $timestamp->getTimestamp();
+?>
+
 <input type="hidden" name="_token" value="{{{csrf_token()}}}"/>
 
 <div class="form-group">
@@ -25,6 +30,8 @@
     <label id="quantidade">Quantidade:</label>
     <input class="form-control" type="number" name="quantidade" id="quantidade" value="{{$p->quantidade}}"/>
 </div>
+
+<input type="hidden" value="{{ $timestamp->format('d-m-Y H:i:s') }}" name="updated_date" id="updated_date"/>
 
 <button class="btn btn-primary btn-block" type="submit">Atualizar</button>
 
